@@ -50,7 +50,7 @@ Update Phone Info,
 Get All Phone Info
 
 
-Send Message to Admin
+Send Message to Admin,
 Delete Message,
 Get All Message
 
