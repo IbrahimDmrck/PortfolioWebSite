@@ -1,0 +1,16 @@
+﻿
+@{ ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/HomePageLayout.cshtml"; }
+@await Html.PartialAsync("HeaderBanner")
+
+
+<section class="w3-gallery py-5">
+    <div class="container py-md-5">
+    <a href="/Image/Index" role="button" class="btn btn-outline-primary">Tümü</a>
+        @await Component.InvokeAsync("CategoryList")
+        @await Component.InvokeAsync("ImageList")
+
+    </div>
+
+</section>
+

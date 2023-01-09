@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Entities.Category>
+
+
+<ul style="list-style-type:none;" class="portfolio-categ filter mb-md-5 mb-4 p-0">
+
+    @foreach (var item in Model)
+    {
+
+<li style="list-style-type:none;" id="work" class="cat-item-@item.Id">
+    <a href="@item.Id" title="Category @item.Id">@item.CategoryName - </a>
+</li>}
+
+</ul>
