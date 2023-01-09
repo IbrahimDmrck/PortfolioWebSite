@@ -59,6 +59,12 @@ namespace Portfolio.Controllers
         {
             var footerImage = _footerImage.GetById(id);
             _footerImage.Delete(footerImage);
+            if (System.IO.File.Exists(footerImage.ImagePath))
+            {
+                System.IO.File.Delete(footerImage.ImagePath);
+                return RedirectToAction("AdminFooterImageGetAll", "FooterImages");
+            }
+           
             return RedirectToAction("AdminFooterImageGetAll", "FooterImages");
         }
 

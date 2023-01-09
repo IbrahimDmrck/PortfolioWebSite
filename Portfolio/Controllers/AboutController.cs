@@ -64,7 +64,15 @@ namespace Portfolio.Controllers
         {
             var about = _aboutManager.GetById(id);
             _aboutManager.Delete(about);
+            if (System.IO.File.Exists(about.ImagePath))
+            {
+                System.IO.File.Delete(about.ImagePath);
+                return RedirectToAction("AdminGetAllAbout", "About");
+            }
+
             return RedirectToAction("AdminGetAllAbout", "About");
+
+
         }
 
         [HttpGet]

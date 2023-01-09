@@ -25,13 +25,19 @@ namespace Portfolio.Controllers
             return View(values);
         }
 
-        public IActionResult AdminDeleteImage(int categoryId)
+        public IActionResult AdminDeleteImage(int id)
         {
-            var imageValue = _imageManager.GetById(categoryId);
+            var imageValue = _imageManager.GetById(id);
             _imageManager.Delete(imageValue);
+            if (System.IO.File.Exists(imageValue.ImagePath))
+            {
+                System.IO.File.Delete(imageValue.ImagePath);
+                return RedirectToAction("AdminGetAllImage", "Image");
+            }
             return RedirectToAction("AdminGetAllImage", "Image");
+
         }
 
-     
+
     }
 }
